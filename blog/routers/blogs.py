@@ -32,4 +32,5 @@ def delete_blog(id:int,db:Session=Depends(get_db),current_user:Blog = Depends(oa
 
 @router.put('/{id}',status_code= status.HTTP_202_ACCEPTED)
 def update_blog(id:int, request:Blog,db:Session=Depends(get_db),current_user:Blog = Depends(oauth2.get_current_user)):
+    
     return blog.update(id,request,db)
